@@ -1,0 +1,36 @@
+html {
+    font-size: 12px;
+    font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+    color: #333;
+    background-color: #f4f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.w {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #909090;
+}
+
+.button,
+button {
+    background-color: #007fff;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: .5rem 1.3rem;
+    outline: none;
+}
