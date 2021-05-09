@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掘金 - 代码不止，掘金不停</title>
+    <link rel="shortcut icon" href="juejin.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/jiujin.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="js/jiujin.js"></script>
+</head>
+
+<body>
+    <div id="index_beforelogin" style="display: block;">
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="beforelogin_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item auth">
+                            <button class="login_button" type="button">登录</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main class="index_main">
+            <nav class="view_nav">
+                <div class="nav_list w">
+                    <a href="javascrip:;" class="nav_item active">推荐</a>
+                    <a href="javascrip:;" class="nav_item">后端</a>
+                    <a href="javascrip:;" class="nav_item">前端</a>
+                    <a href="javascrip:;" class="nav_item">Android</a>
+                    <a href="javascrip:;" class="nav_item">iOS</a>
+                    <a href="javascrip:;" class="nav_item">人工智能</a>
+                    <a href="javascrip:;" class="nav_item">开发工具</a>
+                    <a href="javascrip:;" class="nav_item">代码人生</a>
+                    <a href="javascrip:;" class="nav_item">阅读</a>
+                </div>
+            </nav>
+            <div class="timeline_container">
+                <div class="timeline_content">
+                    <div class="timeline_entry_list">
+                        <div class="entry_list_container">
+                            <header class="list_header">
+                                <nav class="list_nav">
+                                    <ul class="nav_list">
+                                        <li class="nav_item active">热门</li>
+                                        <li class="nav_item">最新</li>
+                                        <li class="nav_item">热榜</li>
+                                    </ul>
+                                </nav>
+                            </header>
+                            <div class="entry_list_wrap">
+                                <ul class="index_entry_list">
+                                    <div class="index_empty" style="display: block;">请登录</div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="index_aside"></aside>
+                </div>
+            </div>
+        </main>
+        <div class="global_component_box">
+            <div class="auth_modal_box" style="display: none;">
+                <form class="auth_form" action="#">
+                    <div class="panfish">
+                        <img src="images/panda_normal.png" alt="" class="normal">
+                        <img src="images/panda_greet.png" alt="" class="greet" style="display: none;">
+                        <img src="images/panda_blind.png" alt="" class="blind" style="display: none;">
+                    </div>
+                    <img src="images/X.svg" alt="" title="关闭" class="close_btn">
+                    <div class="panel">
+                        <h1 class="title">手机登录</h1>
+                        <div class="input_group">
+                            <div class="input_box usernumber_box">
+                                <input name="registernum" autocomplete="off" placeholder="请输入账号" class="number_input">
+                            </div>
+                            <div class="input_box rsc">
+                                <input autocomplete="off" name="registerSmsCode" placeholder="请输入密码" class="code_input" type="password">
+                            </div>
+                        </div>
+                        <button class="btn_login" type="button">登录</button>
+                        <div class="prompt_box">
+                            <span class="clickable" style="display: none;">其他登陆方式</span>
+                            <span class="clickable_show1">手机登录</span>
+                            <span class="clickable_show2 right">忘记密码</span>
+                        </div>
+                    </div>
+                    <div class="oauth_box" style="display: none;">
+                        <div class="oauth_bg">
+                            <img src="images/weibo.svg" alt="">
+                        </div>
+                        <div class="oauth_bg">
+                            <img src="images/wechat.svg" alt="">
+                        </div>
+                        <div class="oauth_bg">
+                            <img src="images/github.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="agreement_box">
+                        注册登录即表示同意
+                        <a href="javascrip:;">用户协议</a> 、
+                        <a href="javascrip:;">隐私政策</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="index_login" style="display:none;">
+        <!-- 顶部导航栏 start  -->
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="login_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item notification">
+                            <a href="javascrip:;">
+                                <img src="images/lingdang.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="nav_item menu">
+                            <img src="" alt="" class="user_img">
+                            <ul class="user_dropdown_list" style="display: none;">
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/writeart.svg" alt=""></i>
+                                            <span>写文章</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/draft.svg" alt=""></i>
+                                            <span>草稿</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;" id="myhomepage">
+                                            <i><img src="images/myhomepage.svg" alt=""></i>
+                                            <span>我的主页</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/thumb-up.svg" alt=""></i>
+                                            <span>我赞过的</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mybrochure.svg" alt=""></i>
+                                            <span>我的小册</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mycollection.svg" alt=""></i>
+                                            <span>我的收藏集</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/label.svg" alt=""></i>
+                                            <span>标签管理</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/penandrule.svg" alt=""></i>
+                                            <span>字学</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/set.svg" alt=""></i>
+                                            <span>设置</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/about.svg" alt="" width="15px"></i>
+                                            <span>关于</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/logout.svg" alt=""></i>
+                                            <span class="outlogin">登出</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- 顶部导航栏 end  -->
+        <main class="main_index_login">
+            <nav class="view_nav">
+                <div class="nav_list w">
+                    <a href="javascrip:;" class="nav_item active">推荐</a>
+                    <a href="javascrip:;" class="nav_item">关注</a>
+                    <a href="javascrip:;" class="nav_item">后端</a>
+                    <a href="javascrip:;" class="nav_item">前端</a>
+                    <a href="javascrip:;" class="nav_item">Android</a>
+                    <a href="javascrip:;" class="nav_item">iOS</a>
+                    <a href="javascrip:;" class="nav_item">人工智能</a>
+                    <a href="javascrip:;" class="nav_item">开发工具</a>
+                    <a href="javascrip:;" class="nav_item">代码人生</a>
+                    <a href="javascrip:;" class="nav_item">阅读</a>
+                    <a href="javascrip:;" class="nav_item">标签管理</a>
+                </div>
+
+            </nav>
+            <div class="timeline_container">
+                <div class="timeline_content">
+                    <div class="timeline_entry_list">
+                        <div class="entry_list_container">
+                            <header class="list_header">
+                                <nav class="list_nav">
+                                    <ul class="nav_list">
+                                        <li class="nav_item active">热门</li>
+                                        <li class="nav_item">最新</li>
+                                        <li class="nav_item">热榜</li>
+                                    </ul>
+                                </nav>
+                            </header>
+                            <div class="entry_list_wrap">
+                                <ul class="login_index_entry_list">
+                                    <div class="login_index_empty" style="display: none;">列表为空</div>
+                                    <li class="login_index_entry_item" style="display: none;">
+                                        <div class="content_box">
+                                            <div class="info_box">
+                                                <div class="meta_row">
+                                                    <ul class="meta_list">
+                                                        <li class="item login_index_username"></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="title_row">
+                                                    <a href="javascrip:;"></a>
+                                                </div>
+                                                <div class="action_row">
+                                                    <ul class="action_list">
+                                                        <li class="item like_btn">
+                                                            <a href="javascrip:;" class="title_box">
+                                                                <img src="images/thumb-up.svg" alt="">
+                                                                <span class="login_index_count"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="item comment">
+                                                            <a href="javascrip:;" class="title_box">
+                                                                <img src="images/comment.svg" alt="">
+                                                                <span class="login_index_count"></span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="index_aside"></aside>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="juejin_web_editor" style="display: none;">
+        <div class="edit_draft">
+            <header class="edit_draft_editor_header">
+                <div class="toggle_btn">
+                    <img src="images/edit_img.svg" alt="">
+                </div>
+                <input type="text" class="title_input" placeholder="输入文章标题..." maxlength="80">
+                <div class="right_box">
+                    <div class="status_text">文章将自动保存至草稿箱</div>
+                    <button type="button" class="caogao_btn">草稿箱</button>
+                    <div class="publish_popup">
+                        <button class="xitu_btn" type="button">发布</button>
+                        <div class="panel" style="display: none;"></div>
+                    </div>
+                    <div class="editoeswitcher">
+                        <img src="images/swap.svg" alt="">
+                    </div>
+                    <nav class="navigator">
+                        <div class="edit_user_img"></div>
+                        <div class="root_menu menu" style="display: none;">
+                            <div class="item_group">
+                                <a href="javascrip:;" class="item">
+                                    写文章
+                                </a>
+                                <a href="javascrip:;" class="item">
+                                    草稿
+                                </a>
+                            </div>
+                            <div class="item_group">
+                                <a href="javascrip:;" class="item" id="myhomepage">我的主页</a>
+                                <a href="javascrip:;" class="item">我喜欢的</a>
+                                <a href="javascrip:;" class="item">我的收藏集</a>
+                                <a href="javascrip:;" class="item">标签管理</a>
+                            </div>
+                            <div class="item_group">
+                                <a href="javascrip:;" class="item">设置</a>
+                                <a href="javascrip:;" class="item">关于</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <div class="main">
+                <div class="bytemd_body">
+                    <div class="bytemd_editor">
+                        <textarea id="editor_input"></textarea>
+                    </div>
+                    <div class="bytemd_preview">
+                        <div class="markdown_body">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="juejin_userweb" style="display:none;">
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="login_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item notification">
+                            <a href="javascrip:;">
+                                <img src="images/lingdang.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="nav_item menu">
+                            <img src="" alt="" class="user_img">
+                            <ul class="user_dropdown_list">
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/writeart.svg" alt=""></i>
+                                            <span>写文章</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/draft.svg" alt=""></i>
+                                            <span>草稿</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/myhomepage.svg" alt=""></i>
+                                            <span>我的主页</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/thumb-up.svg" alt=""></i>
+                                            <span>我赞过的</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mybrochure.svg" alt=""></i>
+                                            <span>我的小册</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mycollection.svg" alt=""></i>
+                                            <span>我的收藏集</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/label.svg" alt=""></i>
+                                            <span>标签管理</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/penandrule.svg" alt=""></i>
+                                            <span>字学</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/set.svg" alt=""></i>
+                                            <span>设置</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/about.svg" alt="" width="15px"></i>
+                                            <span>关于</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/logout.svg" alt=""></i>
+                                            <span class="outlogin">登出</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main class="main_container">
+            <div class="user_view">
+                <div class="major_area">
+                    <div class="user_info_block">
+                        <img src="" alt="" class="user_info_img">
+                        <div class="info_box">
+                            <div class="top">
+                                <h1></h1>
+                            </div>
+                            <div class="position">
+                                <div class="info_input">你从事什么职业？</div>
+                            </div>
+                            <div class="intro">
+                                <div class="info_input">你的信仰是什么？</div>
+                            </div>
+                        </div>
+                        <div class="action_box">
+                            <div class="link_box">
+                                <a href="javascrip:;" title="绑定微博">
+                                    <img src="images/weibo_grey.svg" alt="">
+                                </a>
+                                <a href="javascrip:;" title="绑定 GitHub">
+                                    <img src="images/Logo GitHub.svg" alt="">
+                                </a>
+                                <a href="javascrip:;" title="设置个人主页地址">
+                                    <img src="images/earth.svg" alt="">
+                                </a>
+                            </div>
+                            <button class="setting_btn" type="button">编辑个人资料</button>
+                        </div>
+                    </div>
+                    <div class="list_box">
+                        <div class="detail_list">
+                            <div class="list_header">
+                                <div class="header_content">
+                                    <a href="javascrip:;" class="nav_item active">
+                                        <div class="item_title">动态</div>
+                                    </a>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">文章</div>
+                                    </a>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">沸点</div>
+                                    </a>
+                                    <div class="nav_item">
+                                        <div class="item_title">赞</div>
+                                        <div class="item_count"></div>
+                                        <div class="item_count">
+                                            <img src="images/sanjiao_grey.svg" alt="">
+                                        </div>
+                                        <div class="more_panel" style="display: none;">
+                                            <a href="javascrip:;" class="more_item">文章</a>
+                                            <a href="javascrip:;" class="more_item">热点</a>
+                                        </div>
+                                    </div>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">小册</div>
+                                    </a>
+                                    <div class="nav_item">
+                                        <div class="item_title">更多</div>
+                                        <div class="item_count">
+                                            <img src="images/sanjiao_grey.svg" alt="">
+                                        </div>
+                                        <div class="more_panel" style="display: none;">
+                                            <a href="javascrip:;" class="more_item">收藏集</a>
+                                            <a href="javascrip:;" class="more_item">关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list_body">
+                                <div class="post_list_box">
+                                    <div class="activity_list_box" style="display: none;">
+                                        <div class="sub_header">
+                                            <div class="sub_header_title">文章</div>
+                                            <div class="sub_type_box">
+                                                <a href="javascrip:;" class="sub_type">热门</a>
+                                                <a href="javascrip:;" class="sub_type">最新</a>
+                                            </div>
+                                        </div>
+                                        <ul class="entry_list">
+                                            <div class="empty" style="display: block;">列表为空</div>
+                                            <li class="entry_item" style="display: none;">
+                                                <div class="content_box">
+                                                    <div class="info_box">
+                                                        <div class="meta_row">
+                                                            <ul class="meta_list">
+                                                                <li class="item username"></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="title_row">
+                                                            <a href="javascrip:;"></a>
+                                                        </div>
+                                                        <div class="action_row">
+                                                            <ul class="action_list">
+                                                                <li class="item userweb_like_btn">
+                                                                    <a href="javascrip:;" class="title_box">
+                                                                        <img src="images/thumb-up.svg" alt="">
+                                                                        <span class="count"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="item comment">
+                                                                    <a href="javascrip:;" class="title_box">
+                                                                        <img src="images/comment.svg" alt="">
+                                                                        <span class="count"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="concern_list_box" style="display: none;">
+                                        <div class="sub_header">
+                                            <div class="sub_header_title">关注</div>
+                                            <div class="sub_type_box">
+                                                <a href="javascrip:;" class="sub_type">关注的用户</a>
+                                                <a href="javascrip:;" class="sub_type">关注者</a>
+                                            </div>
+                                        </div>
+                                        <ul class="tag_list">
+                                            <li class="item_user" style="display: none;">
+                                                <div class="user">
+                                                    <div class="link">
+                                                        <img src="" alt="" class="MySubscribe_img">
+                                                        <div class="info_box">
+                                                            <a href="javascrip:;" class="MySubscribe_name"></a>
+                                                            <div class="detail"></div>
+                                                        </div>
+                                                        <button class="follow_button followed">已关注</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="empty_box" style="display: flex;">
+                                    <img src="images/art.svg" alt="">
+                                    <div class="empty_text">
+                                        这里什么都没有
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="minor_area">
+                    <div class="sticky_wrap">
+                        <div class="follow_block">
+                            <a href="javascrip:;" class="follow_item">
+                                <div class="item_title">关注了</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <a href="javascrip:;" class="follow_item">
+                                <div class="item_title">关注者</div>
+                                <div class="item_count">0</div>
+                            </a>
+                        </div>
+                        <div class="more_block">
+                            <a href="javascrip:;" class="more_item">
+                                <div class="item_title">收藏集</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <a href="javascrip:;" class="more_item">
+                                <div class="item_title">关注标签</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <div class="more_item">
+                                <div class="item_title">加入于</div>
+                                <div class="item_count">2021-04-15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="juejin_userweb_changeuserdetail" style="display: none;">
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="login_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item notification">
+                            <a href="javascrip:;">
+                                <img src="images/lingdang.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="nav_item menu">
+                            <img src="" alt="" class="user_img">
+                            <ul class="user_dropdown_list" style="display: none;">
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/writeart.svg" alt=""></i>
+                                            <span>写文章</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/draft.svg" alt=""></i>
+                                            <span>草稿</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;" id="myhomepage">
+                                            <i><img src="images/myhomepage.svg" alt=""></i>
+                                            <span>我的主页</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/thumb-up.svg" alt=""></i>
+                                            <span>我赞过的</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mybrochure.svg" alt=""></i>
+                                            <span>我的小册</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mycollection.svg" alt=""></i>
+                                            <span>我的收藏集</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/label.svg" alt=""></i>
+                                            <span>标签管理</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/penandrule.svg" alt=""></i>
+                                            <span>字学</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/set.svg" alt=""></i>
+                                            <span>设置</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/about.svg" alt="" width="15px"></i>
+                                            <span>关于</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/logout.svg" alt=""></i>
+                                            <span class="outlogin">登出</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <nav class="view_nav">
+            <ul class="nav_list">
+                <li class="nav_item">
+                    <a href="javascrip:;" id="gobackuserweb">
+                        <img src="images/left_grey.svg" alt="" style="width: 11px;">
+                        <span>返回个人主页</span>
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="javascrip:;">个人资料</a>
+                </li>
+                <li class="nav_item">
+                    <a href="javascrip:;">账号设置</a>
+                </li>
+                <li class="nav_item">
+                    <a href="javascrip:;">简历管理</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="main_container">
+            <div class="setting_view">
+                <div class="sub_view_box">
+                    <div class="setting_profile_view">
+                        <h1>个人资料</h1>
+                        <ul class="setting_list">
+                            <li class="item">
+                                <span class="title">头像</span>
+                                <div class="avatar_uploader">
+                                    <img src="" alt="" class="avatar">
+                                    <form id="avatar_uploader" style="display: none;" action="#">
+                                        <input type="file" name="avatar">
+                                    </form>
+                                    <div class="action_box">
+                                        <div class="hint">支持 jpg、png、jpeg 格式大小 5M 以内的图片</div>
+                                        <button class="upload_btn" type="button">点击上传</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <span class="title">用户名</span>
+                                <div class="profile_input_box">
+                                    <form id="username_change" action="#">
+                                        <input type="text" placeholder="填写你的用户名">
+                                    </form>
+                                    <div class="action_box">
+                                        <button class="btn" type="button">修改</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <span class="title">个人介绍</span>
+                                <div class="profile_input_box">
+                                    <form id="user_intro" action="#">
+                                        <input type="text" placeholder="填写职业技能、擅长的事情、喜欢的事情等">
+                                    </form>
+                                    <div class="action_box">
+                                        <button class="edit_btn" type="button">修改</button>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="juejin_art_detail" style="display: none;">
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="login_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item notification">
+                            <a href="javascrip:;">
+                                <img src="images/lingdang.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="nav_item menu">
+                            <img src="" alt="" class="user_img">
+                            <ul class="user_dropdown_list" style="display: none;">
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/writeart.svg" alt=""></i>
+                                            <span>写文章</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/draft.svg" alt=""></i>
+                                            <span>草稿</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;" id="myhomepage">
+                                            <i><img src="images/myhomepage.svg" alt=""></i>
+                                            <span>我的主页</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/thumb-up.svg" alt=""></i>
+                                            <span>我赞过的</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mybrochure.svg" alt=""></i>
+                                            <span>我的小册</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mycollection.svg" alt=""></i>
+                                            <span>我的收藏集</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/label.svg" alt=""></i>
+                                            <span>标签管理</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/penandrule.svg" alt=""></i>
+                                            <span>字学</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/set.svg" alt=""></i>
+                                            <span>设置</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/about.svg" alt="" width="15px"></i>
+                                            <span>关于</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/logout.svg" alt=""></i>
+                                            <span class="outlogin">登出</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main class="main_container">
+            <div class="main_area">
+                <article class="article">
+                    <div class="author_info_block">
+                        <a href="javascrip:;"><img src="http://47.100.42.144:3389/upload/20210502/1619935257392.jpg" alt="" class="avatar"></a>
+                        <div class="author_info_box">
+                            <div class="author_name">
+                                <a href="javascrip:;" class="username"><span class="name">JOE</span></a>
+                            </div>
+                        </div>
+                        <button class="follow_button" type="button">关注</button>
+                    </div>
+                    <h1 class="article_title">测试</h1>
+                    <div class="article_content">
+                        测试
+                    </div>
+                </article>
+                <div class="line"></div>
+                <div class="footer_author_block">
+                    <div class="author_info_block">
+                        <a href="javascrip:;"><img src="http://47.100.42.144:3389/upload/20210502/1619935257392.jpg" alt="" class="avatar"></a>
+                        <div class="author_info_box">
+                            <div class="author_name">
+                                <a href="javascrip:;" class="username"><span class="name">JOE</span></a>
+                            </div>
+                        </div>
+                        <button class="follow_button" type="button">关注</button>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div id="comment_box">
+                    <div class="comment_form">
+                        <input type="text" id="comment" placeholder="输入评论...">
+                        <button id="post_comment">评论</button>
+                    </div>
+                    <div class="comment_list">
+                        <div class="item_comment" style="display: none;">
+                            <div class="comment">
+                                <img src="" alt="" class="user_popover_box">
+                                <div class="comment_content_box">
+                                    <div class="meta_box"></div>
+                                    <div class="content"></div>
+                                    <div class="reply_stat">
+                                        <div class="action_box">
+                                            <div class="like_action action">
+                                                <img src="images/thumb-up.svg" alt="">
+                                            </div>
+                                            <div class="dislike_action action">
+                                                <img src="images/thumb-up.svg" alt="" style="transform: rotateX(180deg) translateY(-3px);">
+                                            </div>
+                                            <div class="comment_action action">
+                                                <img src="images/comment.svg" alt="">
+                                                <span>回复</span>
+                                            </div>
+                                            <div class="delete_action action">删除</div>
+                                        </div>
+                                    </div>
+                                    <div class="reply_comment" style="display: none;">
+                                        <input type="text" class="input_reply" placeholder="输入回复信息...">
+                                        <button id="postreply_btn">发送</button>
+                                    </div>
+                                    <div class="sub_comment_list">
+                                        <div class="comment_reply_item" style="display: none;">
+                                            <div class="sub_comment">
+                                                <div class="sub_comment_content_row">
+                                                    <div class="user_popover_box">
+                                                        <img src="" alt="" class="reply_avatar">
+                                                        <div class="user_content_box">
+                                                            <div class="profie"></div>
+                                                            <div class="reply_content_box"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="action_box">
+                                                        <div class="deletereply_action action">删除</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar_block author_block shadow">
+                    <div class="block_title">关于作者</div>
+                    <div class="block_body">
+                        <a href="javascrip:;" class="user_item item">
+                            <img src="" alt="" class="avatar">
+                            <div class="info_box">
+                                <span class="name"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="article_suspended_panel">
+                <div class="detail_like_btn panel_btn">
+                    <img src="images/thumb-up.svg" alt="">
+                </div>
+                <div class="dislike_btn panel_btn">
+                    <img src="images/thumb-up.svg" alt="" style="transform: rotateX(180deg);">
+                </div>
+                <div class="comment_btn panel_btn">
+                    <a href="#comment_box"> <img src="images/comment.svg" alt=""></a>
+                </div>
+                <div class="deteleArt_btn panel_btn">
+                    <span>删除</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="juejin_other_userweb" style="display:none;">
+        <div class="main_header_box">
+            <div class="main_header w">
+                <a href="javascrip:;">
+                    <img src="images/logo_juejin.svg" alt="">
+                </a>
+                <nav class="main_nav">
+                    <ul class="nav-list">
+                        <li class="main_nav_list">
+                            <ul class="main_nav_list_list">
+                                <li class="main_nav_item ">
+                                    <a href="javascrip:;" class="active">首页</a>
+                                </li>
+                                <li class="main_nav_item"><a href="javascrip:;">沸点</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">小册</a></li>
+                                <li class="main_nav_item"><a href="javascrip:;">活动</a></li>
+                                <li class="main_nav_item"><img src="images/offer.svg" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="nav_item search">
+                            <form action="#" name="search" class="search_form">
+                                <input type="search" maxlength="32" placeholder="探索掘金" class="search_input">
+                                <img src="images/megaloscope.svg" alt="">
+                            </form>
+                        </li>
+                        <li class="nav_item add">
+                            <div class="add_group">
+                                <button type="button" class="login_write_btn">写文章</button>
+                                <div class="more">
+                                    <img src="images/sanjiao.svg" alt="">
+                                </div>
+                                <ul class="more_list" style="display: none;">
+                                    <li class="more_list_item">发布沸点</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav_item notification">
+                            <a href="javascrip:;">
+                                <img src="images/lingdang.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="nav_item menu">
+                            <img src="" alt="" class="user_img">
+                            <ul class="user_dropdown_list">
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/writeart.svg" alt=""></i>
+                                            <span>写文章</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/draft.svg" alt=""></i>
+                                            <span>草稿</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/myhomepage.svg" alt=""></i>
+                                            <span>我的主页</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/thumb-up.svg" alt=""></i>
+                                            <span>我赞过的</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mybrochure.svg" alt=""></i>
+                                            <span>我的小册</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/mycollection.svg" alt=""></i>
+                                            <span>我的收藏集</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/label.svg" alt=""></i>
+                                            <span>标签管理</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/penandrule.svg" alt=""></i>
+                                            <span>字学</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/set.svg" alt=""></i>
+                                            <span>设置</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/about.svg" alt="" width="15px"></i>
+                                            <span>关于</span>
+                                        </a>
+                                    </li>
+                                </div>
+                                <div class="nav_menu_item_group">
+                                    <li class="nav_menu_item">
+                                        <a href="javascrip:;">
+                                            <i><img src="images/logout.svg" alt=""></i>
+                                            <span class="outlogin">登出</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main class="main_container">
+            <div class="user_view">
+                <div class="major_area">
+                    <div class="user_info_block">
+                        <img src="" alt="" class="user_info_img">
+                        <div class="info_box">
+                            <div class="top">
+                                <h1></h1>
+                            </div>
+                            <div class="position">
+                                <div class="info_input">你从事什么职业？</div>
+                            </div>
+                            <div class="intro">
+                                <div class="info_input">你的信仰是什么？</div>
+                            </div>
+                        </div>
+                        <div class="action_box">
+                            <div class="link_box">
+                                <a href="javascrip:;" title="绑定微博">
+                                    <img src="images/weibo_grey.svg" alt="">
+                                </a>
+                                <a href="javascrip:;" title="绑定 GitHub">
+                                    <img src="images/Logo GitHub.svg" alt="">
+                                </a>
+                                <a href="javascrip:;" title="设置个人主页地址">
+                                    <img src="images/earth.svg" alt="">
+                                </a>
+                            </div>
+                            <button class="setting_btn" type="button">编辑个人资料</button>
+                        </div>
+                    </div>
+                    <div class="list_box">
+                        <div class="detail_list">
+                            <div class="list_header">
+                                <div class="header_content">
+                                    <a href="javascrip:;" class="nav_item active">
+                                        <div class="item_title">动态</div>
+                                    </a>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">文章</div>
+                                    </a>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">沸点</div>
+                                    </a>
+                                    <div class="nav_item">
+                                        <div class="item_title">赞</div>
+                                        <div class="item_count"></div>
+                                        <div class="item_count">
+                                            <img src="images/sanjiao_grey.svg" alt="">
+                                        </div>
+                                        <div class="more_panel" style="display: none;">
+                                            <a href="javascrip:;" class="more_item">文章</a>
+                                            <a href="javascrip:;" class="more_item">热点</a>
+                                        </div>
+                                    </div>
+                                    <a href="javascrip:;" class="nav_item">
+                                        <div class="item_title">小册</div>
+                                    </a>
+                                    <div class="nav_item">
+                                        <div class="item_title">更多</div>
+                                        <div class="item_count">
+                                            <img src="images/sanjiao_grey.svg" alt="">
+                                        </div>
+                                        <div class="more_panel" style="display: none;">
+                                            <a href="javascrip:;" class="more_item">收藏集</a>
+                                            <a href="javascrip:;" class="more_item">关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list_body">
+                                <div class="post_list_box">
+                                    <div class="activity_list_box" style="display: none;">
+                                        <div class="sub_header">
+                                            <div class="sub_header_title">文章</div>
+                                            <div class="sub_type_box">
+                                                <a href="javascrip:;" class="sub_type">热门</a>
+                                                <a href="javascrip:;" class="sub_type">最新</a>
+                                            </div>
+                                        </div>
+                                        <ul class="entry_list">
+                                            <div class="empty" style="display: block;">列表为空</div>
+                                            <li class="entry_item" style="display: none;">
+                                                <div class="content_box">
+                                                    <div class="info_box">
+                                                        <div class="meta_row">
+                                                            <ul class="meta_list">
+                                                                <li class="item username"></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="title_row">
+                                                            <a href="javascrip:;"></a>
+                                                        </div>
+                                                        <div class="action_row">
+                                                            <ul class="action_list">
+                                                                <li class="item userweb_like_btn">
+                                                                    <a href="javascrip:;" class="title_box">
+                                                                        <img src="images/thumb-up.svg" alt="">
+                                                                        <span class="count"></span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="item comment">
+                                                                    <a href="javascrip:;" class="title_box">
+                                                                        <img src="images/comment.svg" alt="">
+                                                                        <span class="count"></span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="concern_list_box" style="display: none;">
+                                        <div class="sub_header">
+                                            <div class="sub_header_title">关注</div>
+                                            <div class="sub_type_box">
+                                                <a href="javascrip:;" class="sub_type">关注的用户</a>
+                                                <a href="javascrip:;" class="sub_type">关注者</a>
+                                            </div>
+                                        </div>
+                                        <ul class="tag_list">
+                                            <li class="item" style="display: none;">
+                                                <div class="user">
+                                                    <div class="link">
+                                                        <img src="" alt="" class="MySubscribe_img">
+                                                        <div class="info_box">
+                                                            <a href="javascrip:;" class="MySubscribe_name"></a>
+                                                            <div class="detail"></div>
+                                                        </div>
+                                                        <button class="follow_button followed">已关注</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="empty_box" style="display: flex;">
+                                    <img src="images/art.svg" alt="">
+                                    <div class="empty_text">
+                                        这里什么都没有
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="minor_area">
+                    <div class="sticky_wrap">
+                        <div class="follow_block">
+                            <a href="javascrip:;" class="follow_item">
+                                <div class="item_title">关注了</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <a href="javascrip:;" class="follow_item">
+                                <div class="item_title">关注者</div>
+                                <div class="item_count">0</div>
+                            </a>
+                        </div>
+                        <div class="more_block">
+                            <a href="javascrip:;" class="more_item">
+                                <div class="item_title">收藏集</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <a href="javascrip:;" class="more_item">
+                                <div class="item_title">关注标签</div>
+                                <div class="item_count">0</div>
+                            </a>
+                            <div class="more_item">
+                                <div class="item_title">加入于</div>
+                                <div class="item_count">2021-04-15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
